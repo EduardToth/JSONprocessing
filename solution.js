@@ -2,40 +2,50 @@
 
 var languages = ['de', 'en', 'es', 'fr', 'it', 'ja', 'nl'];
 
-function generateTabs( nrTabs )
+function generateSpace( nrTabs )
 {
-	 if( nrTabs == 0)
-		 return "";
-	 else
-		 return generateTabs( nrTabs - 1) + '\t';
+	let text = '';
+	for(var i = 0; i < nrTabs; i++)
+	   text += '     ';
+    return text;
 }
 
 function processArray( arr, languageModel, englishModel, nrTabs) {
 	let innerJSON = '{\n';
 	for(var i=0; i < arr.length - 1; i++)
-		innerJSON += generateTabs( nrTabs ) + '"' + englishModel[ arr[ i ] ] + '":"' + languageModel[ arr[ i ] ] + '",\n';
-	innerJSON += generateTabs( nrTabs ) + '"' + englishModel[ arr[ i ] ] + '":"' + languageModel[ arr[ i ] ] + '"';
-	innerJSON += generateTabs( nrTabs ) + '\n' + generateTabs( nrTabs ) + '}';
+		innerJSON += generateSpace( nrTabs ) + '"' + englishModel[ arr[ i ] ] + '":"' + languageModel[ arr[ i ] ] + '",\n';
+	innerJSON += generateSpace( nrTabs ) + '"' + englishModel[ arr[ i ] ] + '":"' + languageModel[ arr[ i ] ] + '"';
+	innerJSON += generateSpace( nrTabs ) + '\n' + generateSpace( nrTabs ) + '}';
 	
 	return innerJSON;
 }
 
-function createTheAlmostMostImportantJSON(principalKey, arr, languageModel, englishModel, nrTabs)
+function createTheAlmostMostImportantJSON(principalKey, arr, languageModel, englishModel, nrTabs, ok)
 {
-	let output =   '   {"' + principalKey + '":';
+	let output = '';
+	if( ok ){
+		  output = '  "' + principalKey + '":';
+	}
+	else {
+		  output =  generateSpace( nrTabs ) +  '"' + principalKey + '":';
+	}
 
 	output += processArray(arr, languageModel, englishModel, nrTabs + 1);
 
-	return output + '\n' + generateTabs( nrTabs ) + '}';
+	return output;
 }
 	
 function iterateModelJSON(model, languageModel, englishModel, nrTabs) {
 
     let partialString = '';
-	
+	let ok = true;
 	for(var itr in model)
 		if( Array.isArray( model[ itr ] ) )
-			 partialString +=  createTheAlmostMostImportantJSON(itr, model[ itr ], languageModel, englishModel, nrTabs + 1) + ',\n';
+		  if( ok ){
+			 partialString +=  createTheAlmostMostImportantJSON(itr, model[ itr ], languageModel, englishModel, nrTabs + 1, true) + ',\n';
+			 ok = false;
+		  }else	
+		     partialString += createTheAlmostMostImportantJSON(itr, model[ itr ], languageModel, englishModel, nrTabs + 1, false) + ',\n';
 	return partialString.substring(0, partialString.length - 2);
 }
 
@@ -58,7 +68,7 @@ function createSecondJSON()
 		let languageRawData = fs.readFileSync('C:\\Users\\User\\Desktop\\myVersion\\translatedFiles\\' +  languages[ i ] + '\\supervisor.json');
 	    let languageModel = JSON.parse( languageRawData );
 		
-		finalJSON += '  "' +  languages[ i ] + '": ' + iterateModelJSON(model, languageModel, englishModel, 1) + ",\n";
+		finalJSON += '  "' +  languages[ i ] + '": ' +  iterateModelJSON(model, languageModel, englishModel, 1)  + ",\n";
 	}	
 	
 	let languageRawData = fs.readFileSync('C:\\Users\\User\\Desktop\\myVersion\\translatedFiles\\' +  languages[ languages.length - 1 ] + '\\supervisor.json');
