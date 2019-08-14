@@ -37,16 +37,11 @@ function createTheAlmostMostImportantJSON(principalKey, arr, languageModel, engl
 	
 function iterateModelJSON(model, languageModel, englishModel, nrTabs) {
 
-    let partialString = '';
-	let ok = true;
+    let partialString = '  {\n';
 	for(var itr in model)
 		if( Array.isArray( model[ itr ] ) )
-		  if( ok ){
-			 partialString +=  createTheAlmostMostImportantJSON(itr, model[ itr ], languageModel, englishModel, nrTabs + 1, true) + ',\n';
-			 ok = false;
-		  }else	
-		     partialString += createTheAlmostMostImportantJSON(itr, model[ itr ], languageModel, englishModel, nrTabs + 1, false) + ',\n';
-	return partialString.substring(0, partialString.length - 2);
+			 partialString +=  createTheAlmostMostImportantJSON(itr, model[ itr ], languageModel, englishModel, nrTabs + 1, false) + ',\n';
+	return partialString.substring(0, partialString.length - 2) + '\n  }';
 }
 
 function createSecondJSON()
