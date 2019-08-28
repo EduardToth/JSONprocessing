@@ -1,15 +1,24 @@
 {
-  "name": "translations",
+  "name": "sisensetranslations",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "eduard_toth",
   "license": "ISC",
   "dependencies": {
     "nodemailer": "^6.3.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EduardToth/JSONprocessing.git"
+  },
+  "bugs": {
+    "url": "https://github.com/EduardToth/JSONprocessing/issues"
+  },
+  "homepage": "https://github.com/EduardToth/JSONprocessing#readme",
+  "description": "I have nothing to describe"
 }

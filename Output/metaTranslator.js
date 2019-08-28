@@ -26,6 +26,7 @@ prism.run(['$q', '$http', function ($q, $http) {
                "Production Analytics(4) (3)" : "Produktionsanalysen(4) (3)",
                "Production Analytics(4) (4)" : "Produktionsanalysen(4) (4)"
                }
+
           },
   "en":   {
           "dashboards": {
@@ -242,6 +243,7 @@ prism.run(['$q', '$http', function ($q, $http) {
                "Printers" : "Drucker",
                "Data Collectors" : "Data Collectors",
                "Days" : "Tage",
+               "Hours" : "Stunden",
                "Date" : "Datum"
                },
           "formulas": {
@@ -265,10 +267,12 @@ prism.run(['$q', '$http', function ($q, $http) {
                "Total Throughput" : "Gesamtdurchsatz",
                "Total Impressions" : "Gesamtimpressionen",
                "Total Clicks" : "Gesamtklicks",
+
                "Black & White Clicks" : "Klicks Schwarzweiß",
                "Full-Color Clicks" : "Klicks Vollfarbe",
                "Single/2-Color Clicks" : "Klicks Einzel/2-farbig",
                "Daily Impressions" : "Tägliche Impressionen",
+               "Daily Throughput" : "Täglicher Durchsatz",
                "Impressions" : "Impressionen",
                "Feet" : "Fuß",
                "Meters" : "Meter",
@@ -282,6 +286,7 @@ prism.run(['$q', '$http', function ($q, $http) {
                "Minutes" : "Minuten",
                "Seconds" : "Sekunden",
                "Jobs" : "Aufträge",
+               "Job ID" : "Auftrag-ID",
                "Clicks" : "Klicks",
                "Aborted" : "Abgebrochen",
                "Printed" : "Gedruckt"
@@ -430,6 +435,7 @@ prism.run(['$q', '$http', function ($q, $http) {
                "Printers" : "Printers",
                "Data Collectors" : "Data Collectors",
                "Days" : "Days",
+               "Hours" : "Hours",
                "Date" : "Date"
                },
           "formulas": {
@@ -453,10 +459,12 @@ prism.run(['$q', '$http', function ($q, $http) {
                "Total Throughput" : "Total Throughput",
                "Total Impressions" : "Total Impressions",
                "Total Clicks" : "Total Clicks",
+
                "Black & White Clicks" : "Black & White Clicks",
                "Full-Color Clicks" : "Full-Color Clicks",
                "Single/2-Color Clicks" : "Single/2-Color Clicks",
                "Daily Impressions" : "Daily Impressions",
+               "Daily Throughput" : "Daily Throughput",
                "Impressions" : "Impressions",
                "Feet" : "Feet",
                "Meters" : "Meters",
@@ -470,6 +478,7 @@ prism.run(['$q', '$http', function ($q, $http) {
                "Minutes" : "Minutes",
                "Seconds" : "Seconds",
                "Jobs" : "Jobs",
+               "Job ID" : "Job ID",
                "Clicks" : "Clicks",
                "Aborted" : "Aborted",
                "Printed" : "Printed"
@@ -618,6 +627,7 @@ prism.run(['$q', '$http', function ($q, $http) {
                "Printers" : "Impresoras",
                "Data Collectors" : "Recopiladores de datos",
                "Days" : "Días",
+               "Hours" : "Horas",
                "Date" : "Fecha"
                },
           "formulas": {
@@ -641,10 +651,12 @@ prism.run(['$q', '$http', function ($q, $http) {
                "Total Throughput" : "Productividad total",
                "Total Impressions" : "Total de impresiones",
                "Total Clicks" : "Total de copias",
+
                "Black & White Clicks" : "Copias en blanco y negro",
                "Full-Color Clicks" : "Copias a todo color",
                "Single/2-Color Clicks" : "Copias a 1/2 color(es)",
                "Daily Impressions" : "Impresiones diarias",
+               "Daily Throughput" : "Productividad diaria",
                "Impressions" : "Impresiones",
                "Feet" : "Pies",
                "Meters" : "Metros",
@@ -658,6 +670,7 @@ prism.run(['$q', '$http', function ($q, $http) {
                "Minutes" : "Minutos",
                "Seconds" : "Segundos",
                "Jobs" : "Trabajos",
+               "Job ID" : "ID del trabajo",
                "Clicks" : "Copias",
                "Aborted" : "Cancelado",
                "Printed" : "Impreso"
@@ -806,6 +819,7 @@ prism.run(['$q', '$http', function ($q, $http) {
                "Printers" : "Imprimantes",
                "Data Collectors" : "Collecteurs de données",
                "Days" : "Jours",
+               "Hours" : "Heures",
                "Date" : "Date"
                },
           "formulas": {
@@ -829,10 +843,12 @@ prism.run(['$q', '$http', function ($q, $http) {
                "Total Throughput" : "Débit total",
                "Total Impressions" : "Nb total d'impressions",
                "Total Clicks" : "Total clics",
+
                "Black & White Clicks" : "Clics noir et blanc",
                "Full-Color Clicks" : "Clics pleine couleur",
                "Single/2-Color Clicks" : "Clics une/deux couleurs",
                "Daily Impressions" : "Impressions quotidiennes",
+               "Daily Throughput" : "Débit quotidien",
                "Impressions" : "Impressions",
                "Feet" : "Pieds",
                "Meters" : "Mètres",
@@ -846,6 +862,7 @@ prism.run(['$q', '$http', function ($q, $http) {
                "Minutes" : "Minutes",
                "Seconds" : "Secondes",
                "Jobs" : "Travaux",
+               "Job ID" : "ID travail",
                "Clicks" : "Clics",
                "Aborted" : "Abandonnés",
                "Printed" : "Imprimés"
@@ -994,6 +1011,7 @@ prism.run(['$q', '$http', function ($q, $http) {
                "Printers" : "Stampanti",
                "Data Collectors" : "Raccolte dati",
                "Days" : "Giorni",
+               "Hours" : "Ore",
                "Date" : "Data"
                },
           "formulas": {
@@ -1017,10 +1035,12 @@ prism.run(['$q', '$http', function ($q, $http) {
                "Total Throughput" : "Throughput totale",
                "Total Impressions" : "Impressioni totali",
                "Total Clicks" : "Clic totali",
+
                "Black & White Clicks" : "Clic Bianco e nero",
                "Full-Color Clicks" : "Clic Colori",
                "Single/2-Color Clicks" : "Clic Monocolore/Bicolore",
                "Daily Impressions" : "Impressioni giornal.",
+               "Daily Throughput" : "Throughput giornaliero",
                "Impressions" : "Impressioni",
                "Feet" : "Piedi",
                "Meters" : "Metri",
@@ -1034,6 +1054,7 @@ prism.run(['$q', '$http', function ($q, $http) {
                "Minutes" : "Minuti",
                "Seconds" : "Secondi",
                "Jobs" : "Processi",
+               "Job ID" : "ID processo",
                "Clicks" : "Clic",
                "Aborted" : "Interrotto",
                "Printed" : "Stampato"
@@ -1182,6 +1203,7 @@ prism.run(['$q', '$http', function ($q, $http) {
                "Printers" : "プリンター",
                "Data Collectors" : "Data Collector",
                "Days" : "日",
+               "Hours" : "時間",
                "Date" : "日付"
                },
           "formulas": {
@@ -1205,10 +1227,12 @@ prism.run(['$q', '$http', function ($q, $http) {
                "Total Throughput" : "総スループット",
                "Total Impressions" : "総インプレッション",
                "Total Clicks" : "総クリック数",
+
                "Black & White Clicks" : "白黒クリック数",
                "Full-Color Clicks" : "フルカラークリック数",
                "Single/2-Color Clicks" : "単色/2色クリック数",
                "Daily Impressions" : "日次インプレッション",
+               "Daily Throughput" : "日次スループット",
                "Impressions" : "インプレッション",
                "Feet" : "フィート",
                "Meters" : "メートル",
@@ -1222,6 +1246,7 @@ prism.run(['$q', '$http', function ($q, $http) {
                "Minutes" : "分",
                "Seconds" : "秒",
                "Jobs" : "ジョブ",
+               "Job ID" : "ジョブID",
                "Clicks" : "クリック数",
                "Aborted" : "中断済み",
                "Printed" : "印刷済み"
@@ -1370,6 +1395,7 @@ prism.run(['$q', '$http', function ($q, $http) {
                "Printers" : "Printers",
                "Data Collectors" : "Data Collectors",
                "Days" : "Dagen",
+               "Hours" : "Uren",
                "Date" : "Datum"
                },
           "formulas": {
@@ -1393,10 +1419,12 @@ prism.run(['$q', '$http', function ($q, $http) {
                "Total Throughput" : "Totale doorvoer",
                "Total Impressions" : "Totaal aantal prints",
                "Total Clicks" : "Totaal aantal klikken",
+
                "Black & White Clicks" : "Klikken zwart-wit",
                "Full-Color Clicks" : "Klikken volledig in kleur",
                "Single/2-Color Clicks" : "Klikken een-/tweekleurig",
                "Daily Impressions" : "Dagelijkse prints",
+               "Daily Throughput" : "Dagelijkse doorvoer",
                "Impressions" : "Prints",
                "Feet" : "Voet",
                "Meters" : "Meter",
@@ -1410,6 +1438,7 @@ prism.run(['$q', '$http', function ($q, $http) {
                "Minutes" : "Minuten",
                "Seconds" : "Seconden",
                "Jobs" : "Taken",
+               "Job ID" : "Taak-ID",
                "Clicks" : "Klikken",
                "Aborted" : "Afgebroken",
                "Printed" : "Afgedrukt"

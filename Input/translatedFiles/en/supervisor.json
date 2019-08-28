@@ -855,7 +855,7 @@
 	"<<softkeypc>>": "",
 	"concurrentUsers.viewers": "viewers",
 	"<<softkeypc>>": "",
-	"concurrentUsers.designers": "self service users",
+	"concurrentUsers.designers": "self-service users",
 	"<<softkeypc>>": "",
 	"concurrentUsers.maxUsers": "The maximum number of {{roleGroup}} ({{maxUsers}}) are logged in and using RICOH Supervisor.",
 	"<<softkeypc>>": "",

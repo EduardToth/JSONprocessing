@@ -60,6 +60,7 @@
     "printers",
     "dataCollectors",
     "dashboard.widgets.units.Days",
+    "dashboard.widgets.units.Hours",
     "dashboard.widgets.fields.date"
   ],
   "formulas": [
@@ -83,12 +84,14 @@
     "dashboard.widgets.category.totalThroughput",
     "dashboard.widgets.category.totalImpressions",
     "dashboard.widgets.category.totalClicks",
+    "dashboard.widgets.category.totalNumberOfErrors",
 
     "dashboard.widgets.fields.clicksperprinter.blackandwhite",
     "dashboard.widgets.fields.clicksperprinter.fullColor",
     "dashboard.widgets.fields.clicksperprinter.singletwocolor",
 
     "dashboard.widgets.name.dailyImpressions",
+    "dashboard.widgets.name.dailyThroughput",
     "dashboard.widgets.units.impressions",
     "dashboard.widgets.units.Feet",
     "dashboard.widgets.units.Meters",
@@ -102,7 +105,8 @@
     "dashboard.widgets.units.Minutes",
     "dashboard.widgets.units.Seconds",
     "dashboard.widgets.units.jobs",
-	"dashboard.widgets.fields.clicksCategory",
+    "dashboard.widgets.fields.jobId",
+    "dashboard.widgets.fields.clicksCategory",
     "dashboard.widgets.values.jobState.aborted",
     "dashboard.widgets.values.jobState.printed"
   ],
