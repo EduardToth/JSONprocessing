@@ -1,0 +1,116 @@
+{
+  "tables": [
+    "dashboard.widgets.fields.dateCategory",
+    "dashboard.widgets.fields.errorCategory",
+    "dashboard.widgets.fields.jobCategory",
+    "dashboard.widgets.fields.printerCategory",
+    "dashboard.widgets.fields.shiftCategory",
+    "dashboard.widgets.fields.printerStateCategory",
+    "dashboard.widgets.fields.clicksCategory"
+  ],
+  "columns": {
+    "dashboard.widgets.fields.dateCategory": [
+      "dashboard.widgets.fields.date"
+    ],
+    "dashboard.widgets.fields.errorCategory": [
+      "dashboard.widgets.fields.duration",
+      "dashboard.widgets.fields.error",
+      "dashboard.widgets.fields.errorCode",
+      "dashboard.widgets.fields.startTimestamp"
+    ],
+    "dashboard.widgets.fields.jobCategory": [
+      "dashboard.widgets.fields.copies",
+      "dashboard.widgets.fields.duration",
+      "dashboard.widgets.fields.engineNumber",
+      "dashboard.widgets.fields.impressions",
+      "dashboard.widgets.fields.jobId",
+      "dashboard.widgets.fields.jobName",
+      "dashboard.widgets.fields.jobSize",
+      "dashboard.widgets.fields.jobState",
+      "dashboard.widgets.fields.pages",
+      "dashboard.widgets.fields.printingSide",
+      "dashboard.widgets.fields.startTimestamp",
+      "dashboard.widgets.fields.throughput"
+    ],
+    "dashboard.widgets.fields.printerCategory": [
+      "dashboard.widgets.fields.tenantId",
+      "dashboard.widgets.fields.tenantName",
+      "dashboard.widgets.fields.dataCollector",
+      "dashboard.widgets.fields.printerName",
+      "dashboard.widgets.fields.printerType"
+    ],
+    "dashboard.widgets.fields.shiftCategory": [
+      "dashboard.widgets.fields.shiftName"
+    ],
+    "dashboard.widgets.fields.printerStateCategory": [
+      "dashboard.widgets.fields.duration",
+      "dashboard.widgets.fields.engineNumber",
+      "dashboard.widgets.fields.printerState",
+      "dashboard.widgets.fields.startTimestamp"
+    ],
+    "dashboard.widgets.fields.clicksCategory": [
+      "dashboard.widgets.fields.clicks.total",
+      "dashboard.widgets.fields.clicks.blackandwhite",
+      "dashboard.widgets.fields.clicks.fullColor",
+      "dashboard.widgets.fields.clicks.singletwocolor"
+    ]
+  },
+  "titles": [
+    "shifts",
+    "printers",
+    "dataCollectors",
+    "dashboard.widgets.units.Days",
+    "dashboard.widgets.fields.date"
+  ],
+  "formulas": [
+    "dashboard.widgets.category.upTime",
+    "dashboard.widgets.category.downTime",
+    "dashboard.widgets.category.idleTime",
+    "dashboard.widgets.category.dailyAverage",
+    "dashboard.widgets.category.bestDaily",
+    "dashboard.widgets.category.bestWeekly",
+    "dashboard.widgets.category.bestMonthly",
+    "dashboard.widgets.category.jobsPrinted",
+    "dashboard.widgets.category.jobsAborted",
+    "dashboard.widgets.category.PrinterImpressions",
+    "dashboard.widgets.category.PrinterThroughput",
+    "dashboard.widgets.category.ShiftImpressions",
+    "dashboard.widgets.category.ShiftThroughput",
+    "dashboard.widgets.category.throughputFeet",
+    "dashboard.widgets.category.throughputMeters",
+    "dashboard.widgets.category.throughputSheets",
+    "dashboard.widgets.category.throughputImpressions",
+    "dashboard.widgets.category.totalThroughput",
+    "dashboard.widgets.category.totalImpressions",
+    "dashboard.widgets.category.totalClicks",
+
+    "dashboard.widgets.fields.clicksperprinter.blackandwhite",
+    "dashboard.widgets.fields.clicksperprinter.fullColor",
+    "dashboard.widgets.fields.clicksperprinter.singletwocolor",
+
+    "dashboard.widgets.name.dailyImpressions",
+    "dashboard.widgets.units.impressions",
+    "dashboard.widgets.units.Feet",
+    "dashboard.widgets.units.Meters",
+    "dashboard.widgets.units.Sheets",
+    "dashboard.widgets.units.Years",
+    "dashboard.widgets.units.Quarters",
+    "dashboard.widgets.units.Months",
+    "dashboard.widgets.units.Weeks",
+    "dashboard.widgets.units.Days",
+    "dashboard.widgets.units.Hours",
+    "dashboard.widgets.units.Minutes",
+    "dashboard.widgets.units.Seconds",
+    "dashboard.widgets.units.jobs",
+	"dashboard.widgets.fields.clicksCategory",
+    "dashboard.widgets.values.jobState.aborted",
+    "dashboard.widgets.values.jobState.printed"
+  ],
+  "widgets": [
+    "dashboard.widgets.name"
+
+  ],
+  "dashboards": [
+    "dashbboard.defaultDashboardName"
+  ]
+}

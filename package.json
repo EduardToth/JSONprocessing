@@ -1,0 +1,16 @@
+{
+  "name": "@supervisor/dashboard-sisense-translations",
+  "version": "1.0.1",
+  "main": "main.js",
+  "scripts": {
+    "build": "node src/main.js && eslint --fix src && eslint --fix output/metadataTranslator.js && node test/validateWidgetLibraryKeys.js"
+  },
+  "keywords": [],
+  "dependencies": {
+    "jsonminify": "0.4.1"
+  },
+  "devDependencies": {
+    "eslint": "6.2.2",
+    "eslint-config-google": "0.13.0"
+  }
+}

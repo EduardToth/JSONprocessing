@@ -1,0 +1,13 @@
+<ivy-module version="2.0">
+    <info organisation="com.ricoh.cip" module="${build.module}" />
+    <configurations defaultconf="default">
+        <conf name="cloudFormation"/>
+		<conf name="dashboardwebapp"/>
+        <conf name="default" extends="dashboardwebapp"/>
+    </configurations>
+    <publications>
+    </publications>
+    <dependencies>
+        <dependency name="cloud.Supervisor.UI.dashboardwebapp" conf="dashboardwebapp->dashboardwebapp" transitive="false" rev="1.+" />
+    </dependencies>
+</ivy-module>

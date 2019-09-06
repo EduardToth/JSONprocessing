@@ -1,0 +1,5 @@
+{
+  "widgetNames'":  ["dashboard.widgets.name"],
+  "widgetsTypes": ["dashboard.widgets.type"],
+  "defaultDashboardNames": ["dashbboard.defaultDashboardName"]
+}

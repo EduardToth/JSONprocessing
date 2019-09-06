@@ -1,0 +1,6 @@
+<project  default=" get-dependencies">
+    <property file="${basedir}/local.properties" />
+    <property file="${basedir}/build.properties" />
+    <property name="xdk.buildmacros" value="${xdk.template}/build-macros.xml"/>
+    <import file="${xdk.buildmacros}"/>
+</project>

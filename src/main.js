@@ -1,29 +1,49 @@
 const fs = require('fs');
-const lib = require('./FinalJSGenerator');
-const keyLabel = require( './KeyLabelModule' );
-const utility = require('./UtilityModule');
+const lib = require('./metadataTranslatorGenerator');
+const keyLabelGenarator = require( './widgetLibraryKeysGenerator' );
+const utility = require('./utilityModule');
+const validate = require('./translatedFilesValidation');
+const metadataTranslatorPath = '././output/metadataTranslator.js';
+const modelJSONPath = '././input/plugin/metaTranslations/model.json';
+const inputWidgetLibraryKeysPath = '././output/widgetLibraryKeys.json';
+const outputWidgetLibraryKeysPath = '././input/plugin/metaTranslations/widgetLibraryKeysModel.json';
 
 /** The main function is only used
- * 
+ *@return {undefined}
  */
 function main() {
-
-    fs.writeFile("././Output/metaTranslator.js", lib.finalFormat(utility.parseJSONFile('./Input/plugin/metaTranslations/model.json') ), function (err) {
-        if (err) {
+  try {
+    fs.writeFile(metadataTranslatorPath,
+        lib.finalFormat(utility.parseJSONFile(
+            modelJSONPath)),
+        function(err) {
+          if (!err) {
+            console.log('metadataTranslator.js generated!');
+          } else {
             return console.log(err);
+          }
+        });
+  } catch ( e ) {
+    console.error( e.message );
+  }
+
+
+  fs.writeFile(inputWidgetLibraryKeysPath,
+      keyLabelGenarator.createKeyLabelJSON(
+          outputWidgetLibraryKeysPath),
+      function(err) {
+        if (err) {
+          return console.log(err);
         }
 
-        console.log("The file was saved!");
-    });
-
-    fs.writeFile("././Output/sisenseKeys.json", keyLabel.createKeyLabelJSON('./Input/plugin/metaTranslations/keyLabelInput.json'), function (err) {
-        if (err) {
-            return console.log(err);
-        }
-
-        console.log("The file was saved!");
-    });
-    
+        console.log('widgetLibraryKeys.json generated!');
+      });
 }
 
-main();
+
+try {
+  validate.validateTranslatedFiles();
+  main();
+} catch ( e ) {
+  console.error( e.message );
+}
