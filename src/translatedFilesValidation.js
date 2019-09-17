@@ -1,5 +1,5 @@
 const utility = require('./utilityModule');
-const translatedFilesPath = '././input/translatedFiles';
+const translatedFilesPath = '././input/labels-supervisor';
 module.exports = {
   validateTranslatedFiles,
 };
@@ -9,18 +9,20 @@ const languages = ['de', 'en', 'es', 'fr', 'it', 'ja', 'nl'];
 /** This function receives a key and a value of a JSON and also the JSON where they belong. The function returns true if the value is unique and false otherwise
  *
  * @param {String} criticalKey
- * @param {String} criticalValue\
+ * @param {String} criticalValue
  * @param {JSON} translationJSON
  * @return {Boolean}
  * @private
  */
 function isUniqueValue(criticalKey, criticalValue, translationJSON) {
+  let booleanResult = true;
   Object.keys( translationJSON ).forEach( ( key ) => {
-    if (translationJSON[key] === criticalValue && criticalKey !== key) {
-      return false;
+    if (!key.startsWith('<<') && translationJSON[key] === criticalValue && criticalKey !== key) {
+      booleanResult = false;
+      console.log(`${translationJSON[key]}  ${criticalValue}  ${criticalKey}  ${key}`);
     }
   });
-  return true;
+  return booleanResult;
 }
 
 /** This functions receives a JSON an it finds out if it has duplicated values that will harm the sisens algorithms. If it is so, the machine will throw an error, otherwise, it will return nothing
@@ -39,7 +41,7 @@ function validateJSON( pathToTranslatedFiles ) {
   });
 }
 
-/** The purpose of this function is to find out if the translated files don't have duplicated values. If it doesn't so, thw function will return an error, else it will return nothing (undefined).
+/** The purpose of this function is to find out if the translated files don't have duplicated values. If it doesn't so, the function will return an error, else it will return nothing (undefined).
  *
  * @return {undefined}
  * @public
@@ -50,3 +52,7 @@ function validateTranslatedFiles() {
     validateJSON( pathToTranslatedFile );
   }
 }
+
+validateTranslatedFiles();
+
+

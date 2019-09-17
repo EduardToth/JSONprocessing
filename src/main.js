@@ -1,36 +1,36 @@
 const fs = require('fs');
-const lib = require('./metadataTranslatorGenerator');
-const keyLabelGenarator = require( './widgetLibraryKeysGenerator' );
+const metadataTranslatorGenerator = require('./metadataTranslatorGenerator');
+const widgetLibraryKeysGenerator = require( './widgetLibraryKeysGenerator' );
 const utility = require('./utilityModule');
-const validate = require('./translatedFilesValidation');
-const metadataTranslatorPath = '././output/metadataTranslator.js';
-const modelJSONPath = '././input/plugin/metaTranslations/model.json';
-const inputWidgetLibraryKeysPath = '././output/widgetLibraryKeys.json';
-const outputWidgetLibraryKeysPath = '././input/plugin/metaTranslations/widgetLibraryKeysModel.json';
-
+const verifyInput = require('../test/noDuplicatedValuesInBlocks/translatedFilesValidator');
+const outputMetadataTranslatorPath = '././output/metadataTranslator.js';
+const modelJSONPath = '././input/models/metadataTranslatorModel.json';
+const outputWidgetLibraryKeysPath = '././output/widgetLibraryKeys.json';
+const inputWidgetLibraryKeysPath = '././input/models/widgetLibraryKeysModel.json';
 /** The main function is only used
  *@return {undefined}
  */
 function main() {
-  try {
-    fs.writeFile(metadataTranslatorPath,
-        lib.finalFormat(utility.parseJSONFile(
-            modelJSONPath)),
-        function(err) {
-          if (!err) {
-            console.log('metadataTranslator.js generated!');
-          } else {
-            return console.log(err);
-          }
-        });
-  } catch ( e ) {
-    console.error( e.message );
+  // This statement will verify the input. If the input is not valid, the function will throw an error and the output files will not be generated
+  verifyInput.verify();
+
+  const modelData = utility.parseJSONFile(modelJSONPath);
+
+  const resultedJSON = metadataTranslatorGenerator.duplicationJSONAndTranslationJSON(modelData);
+  //  console.log("MetadataTranslator successfully generated the required files in memory.");
+
+  fs.writeFile(outputMetadataTranslatorPath, resultedJSON, function(err) {
+    if (err) {
+      throw err;
+    }
   }
+  );
+  console.log('MetdataTranslatorGenerator successfully run. Output written to: ' + outputMetadataTranslatorPath);
 
 
-  fs.writeFile(inputWidgetLibraryKeysPath,
-      keyLabelGenarator.createKeyLabelJSON(
-          outputWidgetLibraryKeysPath),
+  fs.writeFile(outputWidgetLibraryKeysPath,
+      widgetLibraryKeysGenerator.createKeyLabelJSON(
+          inputWidgetLibraryKeysPath),
       function(err) {
         if (err) {
           return console.log(err);
@@ -41,9 +41,4 @@ function main() {
 }
 
 
-try {
-  validate.validateTranslatedFiles();
-  main();
-} catch ( e ) {
-  console.error( e.message );
-}
+main();
